@@ -2,5 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
-  css: ['bootstrap/dist/css/bootstrap.min.css']
+  css: [
+    '~/assets/scss/main.scss',
+  ],
 })
