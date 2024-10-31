@@ -12,14 +12,10 @@ const { data: products } = await useFetch<Product[]>('/api/products')
   </header>
 
   <main>
-    <div class="row">
+    <div class="row row-gap-4">
       <div v-for="product in products" :key="product.id" class="col-sm-6 col-lg-4 col-xl-3">
         <ProductCard :product="product" />
       </div>
     </div>
   </main>
 </template>
-
-<style scoped>
-
-</style>

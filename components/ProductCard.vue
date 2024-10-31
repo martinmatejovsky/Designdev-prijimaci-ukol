@@ -13,16 +13,16 @@ const orderClick = () => {
 </script>
 
 <template>
-  <article class="c-product-card mh-100 rounded-3 overflow-hidden">
+  <article class="c-product-card d-flex flex-column h-100 rounded-3 overflow-hidden">
     <div class="c-product-card__image d-flex align-items-center justify-content-center overflow-hidden rounded-3">
       <img v-if="product.image"
         :src="product.image.src"
-        :alt="product.image.alt"
+        :alt="product.image.alt ?? product.name"
            class="c-product-card__photo w-100 h-100"
       />
     </div>
 
-    <div class="c-product-card__body d-flex flex-column p-3">
+    <div class="c-product-card__body d-flex flex-column p-3 row-gap-2 row-gap-md-3">
       <h2 class="c-product-card__name fs-4">{{ product.name }}</h2>
 
       <p v-if="product.description" class="c-product-card__description">{{ product.description }}</p>
@@ -31,13 +31,15 @@ const orderClick = () => {
         {{ product.reviews }}
         {{ product.reviews > 1 ? 'reviews' : 'review' }}
       </a>
-      <span v-else class="c-product-card__no-reviews mb-3">No reviews yet</span>
+      <span v-else class="c-product-card__no-reviews">No reviews yet</span>
 
-      <span class="c-product-card__price fs-4 mb-3">
+      <span class="c-product-card__price fs-4">
         {{ product.currency }}{{ product.price }}
       </span>
+    </div>
 
-      <button type="button" class="btn btn-primary" :disabled="product.onStock == 0" @click="orderClick">
+    <div class="c-product-card__footer mt-auto px-3 pb-3">
+      <button type="button" class="btn btn-primary w-100" :disabled="product.onStock == 0" @click="orderClick">
         Add to cart
       </button>
     </div>
@@ -50,6 +52,10 @@ const orderClick = () => {
 
 .c-product-card {
   box-shadow: $box-shadow;
+}
+
+.c-product-card__body > * {
+  margin-bottom: 0;
 }
 
 .c-product-card__name{

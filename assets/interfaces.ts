@@ -4,7 +4,7 @@ export interface Product {
   image: {
     src: string;
     srcSet?: string;
-    alt: string;
+    alt?: string;
   };
   description?: string;
   rating: number;
