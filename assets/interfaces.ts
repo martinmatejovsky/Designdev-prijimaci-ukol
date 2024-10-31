@@ -1,8 +1,12 @@
 export interface Product {
   id: number;
   name: string;
-  image: string;
-  description: string;
+  image: {
+    src: string;
+    srcSet?: string;
+    alt: string;
+  };
+  description?: string;
   rating: number;
   reviews: number;
   price: number;
