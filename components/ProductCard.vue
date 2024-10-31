@@ -18,7 +18,7 @@ const orderClick = () => {
       <img v-if="product.image"
         :src="product.image.src"
         :alt="product.image.alt"
-           class="c-product-card__photo mw-100 mh-100"
+           class="c-product-card__photo w-100 h-100"
       />
     </div>
 
@@ -58,6 +58,7 @@ const orderClick = () => {
 
 .c-product-card__description {
   font-size: 1.125rem;
+  font-weight: 500;
 }
 
 .c-product-card__image {
@@ -72,6 +73,6 @@ const orderClick = () => {
 }
 
 .c-product-card__photo {
-  object-fit: cover;
+  object-fit: contain;
 }
 </style>
