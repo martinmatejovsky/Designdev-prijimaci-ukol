@@ -7,7 +7,7 @@ export interface Product {
     alt?: string;
   };
   description?: string;
-  rating: number;
+  rating: number | null;
   reviews: number;
   price: number;
   currency: string;

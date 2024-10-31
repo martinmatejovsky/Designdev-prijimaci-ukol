@@ -39,8 +39,8 @@ const orderClick = () => {
     </div>
 
     <div class="c-product-card__footer mt-auto px-3 pb-3">
-      <button type="button" class="btn btn-primary w-100" :disabled="product.onStock == 0" @click="orderClick">
-        Add to cart
+      <button type="button" class="btn btn-primary w-100" :disabled="product.onStock === 0" @click="orderClick">
+        {{ product.onStock ? "Add to cart" : "Out of stock" }}
       </button>
     </div>
   </article>
