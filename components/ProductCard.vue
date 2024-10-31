@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 import { type Product } from '~/assets/interfaces'
 
 const props = defineProps<{
@@ -8,11 +9,12 @@ const props = defineProps<{
 const orderClick = () => {
   console.log('Ordering product:', props.product.name)
 }
+
 </script>
 
 <template>
-  <article class="c-product-card d-flex flex-column h-100 rounded-3 overflow-hidden">
-    <div class="c-product-card__image d-flex align-items-center justify-content-center overflow-hidden rounded-3">
+  <article class="c-product-card d-flex flex-column h-100 rounded-4 overflow-hidden">
+    <div class="c-product-card__image d-flex align-items-center justify-content-center overflow-hidden rounded-4">
       <img v-if="product.image"
         :src="product.image.src"
         :alt="product.image.alt ?? product.name"
@@ -39,9 +41,12 @@ const orderClick = () => {
     </div>
 
     <div class="c-product-card__footer mt-auto px-3 pb-3">
-      <button type="button" class="btn btn-primary w-100" :disabled="product.onStock === 0" @click="orderClick">
-        {{ product.onStock ? "Add to cart" : "Out of stock" }}
-      </button>
+      <Button
+        :disabled="product.onStock === 0"
+        :text="product.onStock ? 'Add to cart' : 'Out of stock'"
+        additional-classes="w-100"
+        @click="orderClick"
+      />
     </div>
   </article>
 </template>

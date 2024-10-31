@@ -1,1 +1,13 @@
+// palette
+$col-primary: #418241;
+$col-primary-light: #B1CA52;
+
 $col-box-shadow: #00000012;
+
+// implementation
+$col-button-primary: $col-primary;
+$col-button-primary-light: $col-primary-light;
+$col-button-primary-hover: darken($col-button-primary, 10%);
+$col-button-primary-light-hover: darken($col-button-primary-light, 10%);
+$col-button-primary-disabled: rgba($col-button-primary, 0.6);
+$col-button-primary-light-disabled: rgba($col-button-primary-light, 0.6);

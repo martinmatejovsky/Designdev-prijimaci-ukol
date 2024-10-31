@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 const props = defineProps<{
   rating: number | null,
 }>()
@@ -8,6 +9,7 @@ const starClassObject = function(iteration: number) {
 }
 
 const stars = props.rating ? Math.ceil(props.rating) : 0
+
 </script>
 
 <template>
