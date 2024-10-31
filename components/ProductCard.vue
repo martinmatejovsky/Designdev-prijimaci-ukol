@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import { type Product } from '~/assets/interfaces'
 
-// properties
 const props = defineProps<{
   product: Product
 }>()
 
-// methods
 const orderClick = () => {
   console.log('Ordering product:', props.product.name)
 }
@@ -27,11 +25,13 @@ const orderClick = () => {
 
       <p v-if="product.description" class="c-product-card__description">{{ product.description }}</p>
 
-      <a v-if="product.reviews > 0" class="c-product-card__reviews mb-3" href="#">
+      <RatingPanel :rating="product.rating" />
+
+      <a v-if="product.reviews > 0" class="c-product-card__reviews" href="#">
         {{ product.reviews }}
         {{ product.reviews > 1 ? 'reviews' : 'review' }}
       </a>
-      <span v-else class="c-product-card__no-reviews">No reviews yet</span>
+      <span v-else class="text-muted">No reviews yet</span>
 
       <span class="c-product-card__price fs-4">
         {{ product.currency }}{{ product.price }}
