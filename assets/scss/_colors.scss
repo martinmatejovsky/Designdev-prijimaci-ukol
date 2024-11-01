@@ -1,8 +1,8 @@
 // palette
 $col-primary: #418241;
 $col-primary-light: #B1CA52;
-
-$col-box-shadow: #00000012;
+$col-secondary: #52B480;
+$col-shadow: #00000012;
 
 // implementation
 $col-button-primary: $col-primary;
@@ -11,3 +11,8 @@ $col-button-primary-hover: darken($col-button-primary, 10%);
 $col-button-primary-light-hover: darken($col-button-primary-light, 10%);
 $col-button-primary-disabled: rgba($col-button-primary, 0.6);
 $col-button-primary-light-disabled: rgba($col-button-primary-light, 0.6);
+
+$col-link: $col-secondary;
+$col-link-hover: darken($col-link, 20%);
+
+$col-box-shadow: $col-shadow;

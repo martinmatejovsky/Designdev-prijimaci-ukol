@@ -1,5 +1,10 @@
 a {
+  color: $col-link;
   transition: color 0.3s;
+
+  &:hover {
+    color: $col-link-hover;
+  }
 }
 
 p {
