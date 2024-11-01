@@ -75,7 +75,11 @@ const orderClick = () => {
 .c-product-card__image {
   background: radial-gradient(102.89% 88.03% at 117.2% 102.58%, #FFFBF2 0%, #F8F3E9 0.01%, #FFFFFF 100%);
   box-shadow: $box-shadow;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 3 / 2;
+
+  @media (min-width: $breakpoint-sm) {
+    aspect-ratio: 1 / 1;
+  }
 }
 
 .c-product-card__reviews,

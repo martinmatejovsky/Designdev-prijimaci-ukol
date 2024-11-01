@@ -31,11 +31,11 @@ const stars = props.rating ? Math.ceil(props.rating) : 0
   background-position: center;
 
   &.--active {
-    background-image: url('~/assets/icons/rating-star-active.svg');
+    background-image: url('../assets/icons/rating-star-active.svg');
   }
 
   &.--inactive {
-    background-image: url('~/assets/icons/rating-star-inactive.svg');
+    background-image: url('../assets/icons/rating-star-inactive.svg');
   }
 }
 

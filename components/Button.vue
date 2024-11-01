@@ -22,16 +22,34 @@ const props = withDefaults(defineProps<{
 @import '../assets/scss/colors.scss';
 
 .c-button {
+  position: relative;
+  z-index: 1;
   background: radial-gradient(100% 246.25% at 100% 50%, $col-button-primary-light, $col-button-primary);
   border: 0 none;
-  transition: background 0.5s ease;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(100% 100.25% at 100% 50%, $col-button-primary-light-hover, $col-button-primary-hover);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: -1;
+  }
 
   &:hover {
-    background: radial-gradient(100% 246.25% at 100% 50%, $col-button-primary-light-hover, $col-button-primary-hover);
+    &::before {
+      opacity: 1;
+    }
   }
 
   &:disabled {
     background: radial-gradient(100% 246.25% at 100% 50%, $col-button-primary-light-disabled, $col-button-primary-disabled);
+    pointer-events: none;
   }
 }
 </style>
