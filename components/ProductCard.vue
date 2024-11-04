@@ -57,6 +57,10 @@ const orderClick = () => {
 
 .c-product-card {
   box-shadow: $box-shadow;
+
+  @media (min-width: $breakpoint-md) {
+    min-height: 600px;
+  }
 }
 
 .c-product-card__body > * {

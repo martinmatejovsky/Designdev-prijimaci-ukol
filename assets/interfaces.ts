@@ -16,6 +16,6 @@ export interface Product {
 }
 
 export enum Suitability {
-  dogs = "dogs",
-  humans = "humans"
+  dogs = "For Dogs",
+  humans = "For Humans"
 }
