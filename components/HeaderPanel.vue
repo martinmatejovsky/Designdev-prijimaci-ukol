@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps(['title']);
+defineProps(["title"]);
 </script>
 
 <template>
@@ -10,8 +10,8 @@ defineProps(['title']);
 </template>
 
 <style scoped lang="scss">
-@import '../assets/scss/colors';
-@import '../assets/scss/global-variables';
+@import "../assets/scss/colors";
+@import "../assets/scss/global-variables";
 
 .c-header-panel {
   margin-bottom: 2.5rem;

@@ -1,4 +1,4 @@
-import {Product, Suitability} from "assets/interfaces";
+import { Product, Suitability } from "assets/interfaces";
 
 export default defineEventHandler(() => {
   let products: Product[] = [
@@ -7,12 +7,12 @@ export default defineEventHandler(() => {
       name: "Product name",
       image: {
         src: "/images/products/1.png",
-        alt: "Product name"
+        alt: "Product name",
       },
       description: "Subtitle with basic ingredients",
       rating: 4.8,
       reviews: 17,
-      price: 49.90,
+      price: 49.9,
       currency: "$",
       suitableFor: [Suitability.dogs],
       onStock: 15,
@@ -22,12 +22,13 @@ export default defineEventHandler(() => {
       name: "Product name very long",
       image: {
         src: "/images/products/2.png",
-        alt: "Product name"
+        alt: "Product name",
       },
-      description: "Subtitle with basic ingredients, subtitle with basic ingredients.",
+      description:
+        "Subtitle with basic ingredients, subtitle with basic ingredients.",
       rating: 3.8,
       reviews: 17,
-      price: 49.90,
+      price: 49.9,
       currency: "$",
       suitableFor: [Suitability.dogs],
       onStock: 15,
@@ -37,12 +38,13 @@ export default defineEventHandler(() => {
       name: "Product name",
       image: {
         src: "/images/products/3.png",
-        alt: "Product name"
+        alt: "Product name",
       },
-      description: "Subtitle with basic ingredients, subtitle with basic ingredients, subtitle with basic ingredients.",
+      description:
+        "Subtitle with basic ingredients, subtitle with basic ingredients, subtitle with basic ingredients.",
       rating: null,
       reviews: 0,
-      price: 49.90,
+      price: 49.9,
       currency: "$",
       suitableFor: [Suitability.dogs, Suitability.humans],
       onStock: 15,
@@ -52,18 +54,18 @@ export default defineEventHandler(() => {
       name: "Product name",
       image: {
         src: "/images/products/4.png",
-        alt: "Product name"
+        alt: "Product name",
       },
-      description: "Subtitle with basic ingredients, subtitle with basic ingredients, subtitle with basic ingredients.",
+      description:
+        "Subtitle with basic ingredients, subtitle with basic ingredients, subtitle with basic ingredients.",
       rating: null,
       reviews: 5,
-      price: 49.90,
+      price: 49.9,
       currency: "$",
       suitableFor: [Suitability.dogs],
       onStock: 0,
     },
-  ]
+  ];
 
   return products;
-})
-
+});
