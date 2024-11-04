@@ -15,10 +15,23 @@ let productsByUser = computed(() => {
 </script>
 
 <template>
-  <header>
-    <h1>The Fab 4</h1>
-    <nav></nav>
-  </header>
+  <HeaderPanel title="The Fab 4">
+    <RadioSwitchButtons v-model="suitableAudience" :buttonList="Object.values(Suitability)" />
+
+<!--    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">-->
+<!--      <template v-for="audience in Object.values(Suitability)" :key="audience">-->
+<!--        <input-->
+<!--            v-model="suitableAudience"-->
+<!--            type="radio"-->
+<!--            :value="audience"-->
+<!--            class="btn-check"-->
+<!--            name="btnRadio"-->
+<!--            :id="`radio-${audience}`"-->
+<!--          >-->
+<!--        <label class="btn btn-outline-secondary" :for="`radio-${audience}`">{{ audience }}</label>-->
+<!--      </template>-->
+<!--    </div>-->
+  </HeaderPanel>
 
   <main>
     <div class="row row-gap-4">
