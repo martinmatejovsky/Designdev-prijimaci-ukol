@@ -2,6 +2,7 @@
 import {type Product, Suitability} from "assets/interfaces";
 import ProductCard from "../components/ProductCard.vue";
 import RadioSwitchButtons from "~/components/RadioButtons.vue";
+import AlertStripe from "~/components/AlertStripe.vue";
 
 const { data: products } = await useFetch<Product[]>('/api/products')
 
@@ -15,22 +16,14 @@ let productsByUser = computed(() => {
 </script>
 
 <template>
-  <HeaderPanel title="The Fab 4">
-    <RadioSwitchButtons v-model="suitableAudience" :buttonList="Object.values(Suitability)" />
+  <HeaderPanel title="The Fab 4" class="d-flex flex-column gap-4">
+    <nav>
+      <RadioSwitchButtons v-model="suitableAudience" :buttonList="Object.values(Suitability)" />
+    </nav>
 
-<!--    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">-->
-<!--      <template v-for="audience in Object.values(Suitability)" :key="audience">-->
-<!--        <input-->
-<!--            v-model="suitableAudience"-->
-<!--            type="radio"-->
-<!--            :value="audience"-->
-<!--            class="btn-check"-->
-<!--            name="btnRadio"-->
-<!--            :id="`radio-${audience}`"-->
-<!--          >-->
-<!--        <label class="btn btn-outline-secondary" :for="`radio-${audience}`">{{ audience }}</label>-->
-<!--      </template>-->
-<!--    </div>-->
+    <AlertStripe>
+      <p>Buy multiples original canine or human products</p>
+    </AlertStripe>
   </HeaderPanel>
 
   <main>
