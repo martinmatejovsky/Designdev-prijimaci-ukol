@@ -1,0 +1,33 @@
+// =====================================================
+// palette
+$col-primary: #418241;
+$col-primary-contrast: #B1CA52;
+$col-primary-light: #52B480;
+$col-secondary: #F89446;
+$col-secondary-contrast: #F5B730;
+$col-info: #FFE55A;
+
+$col-black: #151515;
+$col-white: #FFFFFF;
+$col-grey: #15151533;
+$col-shadow: #00000012;
+
+// =====================================================
+// implementation
+$col-button-primary: $col-primary;
+$col-button-primary-light: $col-primary-contrast;
+$col-button-primary-hover: darken($col-button-primary, 10%);
+$col-button-primary-light-hover: darken($col-button-primary-light, 10%);
+$col-button-primary-disabled: rgba($col-button-primary, 0.6);
+$col-button-primary-light-disabled: rgba($col-button-primary-light, 0.6);
+$col-button-secondary: $col-secondary;
+$col-button-secondary-light: $col-secondary-contrast;
+$col-button-secondary-hover: darken($col-secondary, 10%);
+$col-button-secondary-light-hover: darken($col-secondary-contrast, 10%);
+
+$col-input-brd: $col-grey;
+
+$col-link: $col-primary-light;
+$col-link-hover: darken($col-link, 20%);
+
+$col-box-shadow: $col-shadow;
