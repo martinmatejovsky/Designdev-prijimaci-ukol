@@ -16,8 +16,8 @@ let productsByUser = computed(() => {
 </script>
 
 <template>
-  <HeaderPanel title="The Fab 4" class="d-flex flex-column gap-4">
-    <nav>
+  <HeaderPanel title="The Fab 4">
+    <nav class="navigation-main">
       <RadioSwitchButtons v-model="suitableAudience" :buttonList="Object.values(Suitability)" />
     </nav>
 
@@ -27,10 +27,29 @@ let productsByUser = computed(() => {
   </HeaderPanel>
 
   <main>
-    <div class="row row-gap-4">
+    <div class="products-showroom row row-gap-4 mx-auto">
       <div v-for="product in productsByUser" :key="product.id" class="col-sm-6 col-lg-4 col-xl-3">
         <ProductCard :product="product" />
       </div>
     </div>
   </main>
 </template>
+
+<style scoped lang="scss">
+@import '../assets/scss/colors';
+@import '../assets/scss/global-variables';
+
+.navigation-main {
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+
+    @media (min-width: $breakpoint-md) {
+      margin-bottom: 2.5rem;
+    }
+  }
+}
+
+.products-showroom {
+  max-width: 1176px;
+}
+</style>

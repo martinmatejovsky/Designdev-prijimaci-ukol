@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import {Suitability} from "assets/interfaces";
 
 const props = defineProps<{
   modelValue: String,
@@ -9,7 +8,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="c-radio-buttons flex-column flex-sm-row btn-group gap-1 gap-sm-4 rounded-3" role="group" aria-label="Basic radio toggle button group">
+  <div class="c-radio-buttons flex-column flex-sm-row btn-group gap-1 gap-sm-4 rounded-3 fw-bold" role="group" aria-label="Basic radio toggle button group">
     <template v-for="button in buttonList" :key="button">
       <input
           type="radio"
@@ -34,7 +33,6 @@ const props = defineProps<{
 @import '../assets/scss/global-variables.scss';
 
 .c-radio-buttons {
-  font-weight: 700;
   box-shadow: inset 0 0 0 1px $col-input-brd;
 }
 
@@ -47,10 +45,17 @@ const props = defineProps<{
   &:hover {
     background-color: rgba($col-button-secondary, 10%);
   }
+
+  .c-radio-buttons__input:focus-visible + & {
+    outline: 2px solid $col-black;
+    outline-offset: 2px;
+  }
 }
 
 .c-radio-buttons__input:checked + .c-radio-buttons__label {
   background: radial-gradient(100% 513.85% at 0% 66.67%, $col-button-secondary 0%, $col-button-secondary-light 100%);
-  color: white;
+  box-shadow: $box-shadow;
+  color: $col-white;
 }
+
 </style>

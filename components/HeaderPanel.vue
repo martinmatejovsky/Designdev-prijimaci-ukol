@@ -1,25 +1,28 @@
 <script setup lang="ts">
-const props = defineProps<{
-  title: string,
-}>()
+defineProps(['title']);
 </script>
 
 <template>
-  <header class="c-header-panel text-center">
+  <header class="c-header-panel d-flex flex-column text-center">
     <h1 class="c-header-panel__heading">{{ title }}</h1>
-
     <slot />
   </header>
 </template>
 
 <style scoped lang="scss">
+@import '../assets/scss/colors';
+@import '../assets/scss/global-variables';
+
 .c-header-panel {
-  margin-top: 3.75rem;
   margin-bottom: 2.5rem;
-  font-weight: 800;
 }
 
 .c-header-panel__heading {
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 800;
+
+  @media (min-width: $breakpoint-md) {
+    margin-bottom: 3.5rem;
+  }
 }
 </style>

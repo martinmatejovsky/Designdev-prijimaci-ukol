@@ -23,19 +23,19 @@ const orderClick = () => {
     </div>
 
     <div class="c-product-card__body d-flex flex-column p-3 row-gap-2 row-gap-md-3">
-      <h2 class="c-product-card__name fs-4">{{ product.name }}</h2>
+      <h2 class="c-product-card__name fs-4 fw-bold">{{ product.name }}</h2>
 
       <p v-if="product.description" class="c-product-card__description">{{ product.description }}</p>
 
       <RatingPanel :rating="product.rating" />
 
-      <a v-if="product.reviews > 0" class="c-product-card__reviews" href="#">
+      <a v-if="product.reviews > 0" class="c-product-card__reviews fw-bold" href="#">
         {{ product.reviews }}
         {{ product.reviews > 1 ? 'reviews' : 'review' }}
       </a>
       <span v-else class="text-muted">No reviews yet</span>
 
-      <span class="c-product-card__price fs-4">
+      <span class="c-product-card__price fs-4 fw-bold">
         {{ product.currency }}{{ product.price }}
       </span>
     </div>
@@ -67,10 +67,6 @@ const orderClick = () => {
   margin-bottom: 0;
 }
 
-.c-product-card__name{
-  font-weight: 700;
-}
-
 .c-product-card__description {
   font-size: 1.125rem;
   font-weight: 500;
@@ -84,11 +80,6 @@ const orderClick = () => {
   @media (min-width: $breakpoint-sm) {
     aspect-ratio: 1 / 1;
   }
-}
-
-.c-product-card__reviews,
-.c-product-card__price{
-  font-weight: 700;
 }
 
 .c-product-card__photo {
