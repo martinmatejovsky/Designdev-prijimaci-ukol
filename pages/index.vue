@@ -1,24 +1,38 @@
 <script setup lang="ts">
-import {type Product, Suitability} from "assets/interfaces";
-import ProductCard from "../components/ProductCard.vue";
-import RadioSwitchButtons from "~/components/RadioButtons.vue";
 import AlertStripe from "~/components/AlertStripe.vue";
+import RadioButtons from "~/components/RadioButtons.vue";
+import { type Product, Suitability } from "assets/interfaces";
 
-const { data: products } = await useFetch<Product[]>('/api/products')
-
-let suitableAudience = ref<Suitability>(Suitability.dogs)
+let products = ref<Product[] | null>(null);
+let suitableAudience = ref<Suitability>(Suitability.dogs);
+let productsLoaded = ref(false);
 
 let productsByUser = computed(() => {
-  if(!products.value) return []
+  if (!products.value) return [];
+  return products.value.filter((product: Product) =>
+    product.suitableFor.includes(suitableAudience.value),
+  );
+});
 
-  return products.value.filter(product => product.suitableFor.includes(suitableAudience.value))
-})
+// Use onBeforeMount to initiate fetching earlier in the lifecycle
+onMounted(async () => {
+  try {
+    products.value = await $fetch<Product[]>("/api/products");
+  } catch (error) {
+    console.error("Failed to fetch products", error);
+  } finally {
+    productsLoaded.value = true;
+  }
+});
 </script>
 
 <template>
   <HeaderPanel title="The Fab 4">
-    <nav class="navigation-main">
-      <RadioSwitchButtons v-model="suitableAudience" :buttonList="Object.values(Suitability)" />
+    <nav v-if="productsByUser" class="navigation-main">
+      <RadioButtons
+        v-model="suitableAudience"
+        :buttonList="Object.values(Suitability)"
+      />
     </nav>
 
     <AlertStripe>
@@ -28,16 +42,34 @@ let productsByUser = computed(() => {
 
   <main>
     <div class="products-showroom row row-gap-4 mx-auto">
-      <div v-for="product in productsByUser" :key="product.id" class="col-sm-6 col-lg-4 col-xl-3">
+      <div v-if="!productsLoaded" class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+
+      <div
+        v-else-if="productsByUser.length > 0"
+        v-for="product in productsByUser"
+        :key="product.id"
+        class="col-sm-6 col-lg-4 col-xl-3"
+      >
         <ProductCard :product="product" />
+      </div>
+
+      <div
+        v-else
+        class="d-flex justify-content-center align-items-center text-muted"
+      >
+        <p>No products found for this selection.</p>
       </div>
     </div>
   </main>
 </template>
 
 <style scoped lang="scss">
-@import '../assets/scss/colors';
-@import '../assets/scss/global-variables';
+@import "../assets/scss/colors";
+@import "../assets/scss/global-variables";
 
 .navigation-main {
   &:not(:last-child) {
