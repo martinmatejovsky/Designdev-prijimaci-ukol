@@ -3,8 +3,8 @@
 @import "fonts";
 
 // Bootstrap
-@import "bootstrap-mixins-override";
-@import "bootstrap/scss/bootstrap";
-@import "bootstrap-variables-override";
+@import "libraries/bootstrap-mixins-override";
+@import "libraries/bootstrap-main";
+@import "libraries/bootstrap-variables-override";
 
 @import "elements";
